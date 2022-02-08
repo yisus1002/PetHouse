@@ -3,9 +3,10 @@
 
 - Jesus David Garcia Hernandez
 - Roberto Carlos Berrocal Rodriguez
-Avance del proyecto final creado un CRUD con
+Avance del proyecto final creando un CRUD con
 ###### MockApi
 ###### Vue js
+###### Vuex
 ###### Axios
 ###### Vuetify
 
