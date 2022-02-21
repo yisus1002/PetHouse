@@ -1,6 +1,29 @@
 <template>
   <v-app>
-    <Header></Header>
+     <div>
+        <v-app-bar app v-if="this.inicio.estado==false" class="white "  elevate-on-scroll  > 
+        <v-btn   href="/" class="m-0 p-0" text large>
+         <v-img   max-height="50"   max-width="90"  
+        src="https://i.ibb.co/thnsYtk/logo-ccexpress.png" class="px-0 py-0 m-0"> </v-img> 
+        </v-btn> 
+      <v-spacer></v-spacer> 
+      <div class="d-flex">
+        <v-btn  outlined color="red" link href="/Loguin"   class="mx-1 text-capitalize " >
+          Ingresar
+        </v-btn> 
+        <v-btn outlined    dark color="green accent-4"  @click="eliminarid"  class="mx-1 text-capitalize" >
+         Explorar 
+        </v-btn>
+      </div>
+
+        </v-app-bar>
+      
+     </div>
+    <Header v-if="this.inicio.estado==true"></Header>
+
+
+
+
      <v-dialog
           v-model="loading.estado"
           hide-overlay
@@ -23,6 +46,8 @@
         </v-dialog>
         <Snackbar></Snackbar>
     <v-main class="mt-0 ">
+        <Inicio v-if="this.inicio.estado==false"></Inicio> 
+
       <router-view/>
     </v-main>
 
@@ -36,24 +61,48 @@ import { mapState} from "vuex"
 import Header from './components/shared/Header.vue'
 import Footer from './components/shared/Footer.vue'
 import Snackbar from './components/shared/Snackbar.vue'
+import Inicio from './components/Inicio.vue'
+
+
 export default {
   name: 'App',
   components:{
     Header,
     Footer,
     Snackbar,
+    Inicio,
 
   },
 
   data: () => ({
-    
+    mostrar: false,
+    ruta:''
+
+
   }),
   computed:{
-    ...mapState(["loading",'isloading','userLocation'])
+    ...mapState(["loading",'isloading','userLocation','inicio','btneditarp']),
+ 
   },
+  methods:{
+    // async eli(){
 
+    // },
+            eliminarid(){
+      this.btneditarp.estado=true
+       let id= JSON.parse(localStorage.getItem('id'));
+       if(id !=null){ 
+        localStorage.removeItem('id');
+         this.$router.push('Home'); 
+      }else{
+         this.$router.push('Home'); 
+      } 
+    }, 
+  },
   created(){
-    console.log(this.isloading, this.userLocation)
+    this.inicio.estado=false;
+    console.log(this.btneditarp.estado);
+    // console.log(this.isloading, this.userLocation)
   }
 };
 </script>

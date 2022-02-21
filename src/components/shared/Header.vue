@@ -19,27 +19,28 @@
   </v-navigation-drawer>
 
 <!-- Header -->
-    <v-app-bar color="grey lighten-5" app elevate-on-scroll height="45" > 
-        <v-app-bar-nav-icon class="hidden-md-and-up" @click="ham=true"></v-app-bar-nav-icon>
-        <v-img   lazy-src="https://i.ibb.co/1LjY2dP/logo.png"  max-height="40"   max-width="100"  
-        src="https://i.ibb.co/1LjY2dP/logo.png" class="mr-3 ml-4 "> </v-img>  
+    <v-app-bar  app elevate-on-scroll height="45" > 
+        <v-app-bar-nav-icon  color="red" class="hidden-md-and-up" @click="ham=true"></v-app-bar-nav-icon>
+        <v-img   lazy-src="https://i.ibb.co/1LjY2dP/logo.png"  max-height="35"   max-width="90"  
+        src="https://i.ibb.co/thnsYtk/logo-ccexpress.png" dark class="mr-3 my-auto ml-md-4  "> </v-img>  
         <v-spacer></v-spacer>
-
-        <v-btn color="success" class="mx-1" icon><v-icon color="green"  >mdi-account</v-icon></v-btn>
+        <Avatar></Avatar>
         <tema/>
         <template v-slot:extension >
-          <v-tabs   icons-and-text
-              show-arrows  id="cont"
-           color="cyan">
+          <v-tabs  
+              show-arrows  id="cont" 
+           color="cyan"
+            >
                <v-tabs-slider color="green accent-3"></v-tabs-slider>
               <!--  -->
            <v-tab  :to="item.to"  v-for="item of items" :key="item.title"
-             class="hidden-sm-and-down mx-0 font-weight-bold ">  
-                  <v-icon size="26" color="teal darken-2" >{{item.icon}}</v-icon>
+             class="hidden-sm-and-down mx-0 font-weight-bold text-capitalize">  
+            {{item.title}}
+                  <!-- <v-icon size="26" color="teal darken-2" >{{item.icon}}</v-icon> -->
             </v-tab>
             <!--  -->
              <v-tab  :to="item.to"  v-for="item of  itemInicio" :key="item.to"
-              class="hidden-md-and-up  mx-0" > 
+              class="hidden-md-and-up   mx-0" > 
                   <v-icon  color="teal darken-2 " size="23" >{{item.icon}}</v-icon>
             </v-tab>
              
@@ -50,25 +51,24 @@
       </v-app-bar>
 
 <!-- Menu del header -->
+ <!-- src="https://cadenaser00.epimg.net/ser/imagenes/2021/04/20/ciencia/1618942837_702489_1618942926_noticia_normal.jpg" -->
+ <!-- teal text-darken-1 -->
  <v-navigation-drawer 
-     src="https://cadenaser00.epimg.net/ser/imagenes/2021/04/20/ciencia/1618942837_702489_1618942926_noticia_normal.jpg"
-    v-model="ham" temporary  class="teal text-darken-1 hidden-md-and-up "
+    
+    v-model="ham" temporary  class=" hidden-md-and-up "
       dark fixed  height="100vh"  >
           <v-list nav dense class="pb-8" >
               <v-list-item-group active-class="blue--text grey lighten-5" >
-                <!--  -->
-                  <v-list-item two-line>
-                      <v-list-item-avatar> 
-                        <v-icon>mdi-account</v-icon>
-                      </v-list-item-avatar>
-                      <v-list-item-content>
-                      <v-list-item-title>Nombre</v-list-item-title>
-                      <v-list-item-subtitle>Logged In</v-list-item-subtitle>
-                      </v-list-item-content>
-                   </v-list-item>
+                            
+                    <v-list-item-title> 
+                     <h6  class=" text-center fontJ text-xs-h1 py-0 my-0 mb-3" >
+                         <v-icon size="25" color="white" >mdi-paw</v-icon>
+                         petHouse
+                         <v-icon  size="25" color="white">mdi-paw</v-icon>
+                       </h6>
+                    </v-list-item-title>
 
                     <v-divider></v-divider>
-<!--  -->
                     <v-list-item link :to="item.to"  v-for="item in items" :key="item.title"   >
                         <v-list-item-icon>
                         <v-icon >{{item.icon}}</v-icon>
@@ -82,13 +82,13 @@
             <h3 class="text-center  text-j" style="position: absolute; bottom:0; ">PetHouse</h3>
     </v-navigation-drawer>
 
-
     </div>
 </template>
 <script>
 
 import { mapState } from "vuex"
 import Tema from "../../assets/ui/tema.vue"
+import Avatar from '../shared/Avatar.vue'
 export default {
     name:'Header',
     data(){
@@ -96,7 +96,7 @@ export default {
             ham:false,
 
             items: [
-                  { title: 'Inicio', icon: 'mdi-home', to:'/' },
+                  { title: 'Inicio', icon: 'mdi-home', to:'/Home' },
                   { title: 'Nosotros', icon: 'mdi-account-group', to:'/nosotros' },
                   { title: 'Contactanos', icon: 'mdi-contacts', to:'/contactanos'},
                   { title: 'Preguntas', icon: 'mdi-chat-question-outline', to:'/preguntas' },
@@ -111,6 +111,7 @@ export default {
     },
     components:{
       Tema,
+      Avatar,
     }
     ,
     computed:{

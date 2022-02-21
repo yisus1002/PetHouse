@@ -1,18 +1,16 @@
 <template >
     <div>
-    <v-container fluid class="pl-md-14 d-flex justify-center " id='cliente'>
-      <v-container class=" px-0 pb-0" > 
-        <div class=" container-fluid mt-0 mx-auto col-sm-12 col-md-11  px-0 shadow" >
-             <h1 class=" justify-center fontp  d-flex m-0 py-0 " >Clientes <v-icon color="black" class="mx-3" size="34">mdi-human-queue</v-icon>  </h1>
+    <v-container fluid class="pl-md-14 d-flex justify-center " >
+      <v-container  class=" px-0 pb-0" >
+       <div class=" container-fluid mt-0 mx-auto col-sm-12 col-md-11 pt-0 px-0  shadow white rounded-lg" style="overflow:hidden;" >
+            <h1 class=" justify-center fontp d-flex m-0 py-0 green" >Clientes <v-icon color=" purple accent-3" class="mx-3" size="34">mdi-paw</v-icon> </h1>
                  <v-btn color="purple accent-3" 
-                 class="mx-4 mb-3"
+                 class="mx-4 mb-3 mt-1"
                      @click="limpiar " 
                   x-small elevation="5" fab  dark> <v-icon>mdi-plus</v-icon></v-btn>    
-
           <div class="container-fluid table-responsive cont-table">
-            <table class="table table-sm table-hover ">
+            <table class="table table-sm table-hover " >
               <thead>
-                
                 <tr id="CabezeraC">
                   <th scope="col" >fila</th> 
                   <th class="text-center" scope="col">Nombres</th>
@@ -39,8 +37,9 @@
               </tbody>
             </table>
 
-          </div>
-        </div>
+                  </div>
+           
+          </div> 
 
 
 
@@ -63,11 +62,11 @@
                 </v-form> 
             </v-card>
         </v-dialog>
-
+        
       </v-container>
      </v-container>
     
-    </div>
+    </div>  
 </template>
 <script>
 
@@ -89,7 +88,7 @@ export default {
         }
     },
      computed:{
-        ...mapState(['menuinicio']),
+        ...mapState(['menuinicio','inicio']),
     },
 
     methods:{
@@ -189,6 +188,7 @@ export default {
 
     created(){ 
       this.menuinicio.estado=true;
+       this.inicio.estado=true;
       this.getClientes();
     }, 
 }

@@ -9,8 +9,8 @@ import '@mdi/font/css/materialdesignicons.css'
 import swal from 'sweetalert'
 
 
-import mapboxgl from 'mapbox-gl'; 
-mapboxgl.accessToken = 'pk.eyJ1IjoiamVzdXNnMTAwMiIsImEiOiJja3pidnd1ZmMwbm1yMnZxbzdqN282dG9oIn0.J2WZGMiiI8RGlMTvBmXv4w';
+// import mapboxgl from 'mapbox-gl'; 
+// mapboxgl.accessToken = 'pk.eyJ1IjoiamVzdXNnMTAwMiIsImEiOiJja3pidnd1ZmMwbm1yMnZxbzdqN282dG9oIn0.J2WZGMiiI8RGlMTvBmXv4w';
 
 Vue.config.productionTip = false
 
@@ -19,6 +19,6 @@ new Vue({
   store,
   vuetify,
   swal,
-  mapboxgl,
+ 
   render: h => h(App)
 }).$mount('#app')

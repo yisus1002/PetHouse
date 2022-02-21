@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import axios from "axios";
 
 Vue.use(Vuex)
 
@@ -8,9 +9,12 @@ export default new Vuex.Store({
   state: {
     isloading:true,
     userLocation:[],
+    respuesta:[],
     menuinicio:{
       estado:false,
     },
+    btneditarp:{estado:false},
+    
     loading:{
       titulo:"",
       estado:false,
@@ -20,7 +24,9 @@ export default new Vuex.Store({
       estado:false,
       mensaje:'',
       color:'',
-    }
+    },
+    usuario:{id:''},
+    inicio:{estado:false},
 
   },
     mutations:{
@@ -41,6 +47,15 @@ export default new Vuex.Store({
         console.log({coords});
         state.userLocation=coords;
         state.isloading=false;
+      },
+      async obtenerUsuarios(state ){
+          try{
+              const datos=await axios.get('https://61d654c7b7381600171814db.mockapi.io/cliente/');
+              state.respuesta=datos.data;
+          
+          }catch(error){
+              console.log(error);
+          }   
       }
       },
   actions: {

@@ -2,10 +2,10 @@
     <div>
     <v-container fluid class="pl-md-14 d-flex justify-center " >
       <v-container  class=" px-0 pb-0" >
-    <div class=" container-fluid mt-0 mx-auto col-sm-12 col-md-11  px-0 shadow ">
-            <h1 class=" justify-center fontp  d-flex m-0 py-0 " >Productos<v-icon color="black" class="mx-3" size="34">mdi-shopping</v-icon> </h1>
+    <div class=" container-fluid mt-0 mx-auto col-sm-12 col-md-11 pt-0 px-0 shadow white rounded-lg" style="overflow:hidden;" >
+            <h1 class=" justify-center fontp  d-flex m-0 py-0  green " >Productos<v-icon color="purple accent-3" class="mx-3" size="34">mdi-shopping</v-icon> </h1>
                  <v-btn color="purple accent-3" 
-                 class="mx-4 mb-3"
+                 class="mx-4 mb-3 mt-1"
                      @click="limpiar " 
                   x-small elevation="5" fab  dark> <v-icon>mdi-plus</v-icon></v-btn>        
           <div class="container-fluid table-responsive cont-table">
@@ -89,7 +89,7 @@ export default {
         Snackbar,
     },
      computed:{
-        ...mapState(['menuinicio']),
+        ...mapState(['menuinicio','inicio']),
     },
     methods:{
         ...mapMutations(["mostrarLoading","ocultarLoading", 'mostrarSnacbar']),
@@ -183,6 +183,7 @@ export default {
     },
     created(){
       this.menuinicio.estado=true;
+       this.inicio.estado=true;
       this.getProducto();
 
     },  
